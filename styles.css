@@ -1,4 +1,3 @@
-/* ===== Общие стили ===== */
 * {
     margin: 0;
     padding: 0;
@@ -6,12 +5,11 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    scroll-behavior: smooth;
+    font-family: Arial, sans-serif;
     overflow-x: hidden;
 }
 
-/* ===== Индикатор прогресса видео ===== */
+/* Прогресс бар */
 .progress-container {
     position: fixed;
     top: 0;
@@ -19,35 +17,29 @@ body {
     width: 100%;
     height: 1vw;
     background: rgba(255, 255, 255, 0.1);
-    z-index: 1000;
+    z-index: 100;
 }
 
 .progress-bar {
     height: 100%;
-    width: 0%;
-    background: #ff0000;
-    transition: width 0.05s linear;
+    width: 0;
+    background: white;
+    transition: width 0.1s linear;
 }
 
-/* ===== Секция с видео ===== */
+/* Видео блок */
 .video-section {
     position: relative;
     width: 100vw;
     height: 56.25vw;
-    /* Соотношение 16:9 */
     min-height: 100vh;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .video-container {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
+    position: relative;
 }
 
 video {
@@ -60,104 +52,113 @@ video {
     object-fit: cover;
 }
 
-/* ===== Кнопка "Приехать" ===== */
-.arrival-btn {
+/* Градиент снизу */
+.bottom-gradient {
     position: absolute;
-    bottom: 15%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 1.2vw 2.5vw;
-    font-size: 1.5vw;
-    font-weight: 500;
-    background: rgba(255, 0, 0, 0.9);
-    color: #ffffff;
-    border: none;
-    border-radius: 1vw;
-    cursor: pointer;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, rgba(40, 40, 40, 0.7), transparent);
+    z-index: 2;
+}
+
+/* Логотип */
+.logo {
+    position: absolute;
+    top: 3vw;
+    left: 3vw;
+    width: 15vw;
+    height: auto;
     z-index: 10;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-
-.arrival-btn:hover {
-    background: #ff0000;
-    transform: translateX(-50%) scale(1.05);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+/* Заголовок */
+.opening-title {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2.5vw; /* Уменьшенный размер */
+    text-transform: uppercase;
+    letter-spacing: 0.3vw;
+    text-shadow: 0 0 1vw rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    text-align: center;
+    width: 100%;
+    font-weight: 600;
 }
 
-/* ===== Секция с ссылками ===== */
-.links-section {
-    padding: 8vw 5vw;
+/* Информационная строка */
+.info-line {
+    position: absolute;
+    bottom: 8%;
+    left: 0;
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2vw;
-    background: #ff0000;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5vw;
+    z-index: 10;
+    color: white;
+    font-size: 1.2vw; /* Уменьшенный размер */
 }
 
-.link {
-    padding: 1.8vw 3.5vw;
-    font-size: 1.5vw;
-    color: #fff;
-    background: #333;
-    text-decoration: none;
-    border-radius: 50px;
-    transition: all 0.3s ease;
+.address, .phone {
+    flex: 1;
     text-align: center;
 }
 
-.link:hover {
-    background: #ff5722;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.arrival-btn {
+    padding: 0.8vw 2.5vw;
+    background: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1vw; /* Уменьшенный размер */
+    transition: all 0.3s;
+    white-space: nowrap;
 }
 
-/* ===== Адаптация для мобильных ===== */
+.arrival-btn:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+}
+
+/* Адаптация для мобилок */
 @media (max-width: 768px) {
-    .video-section {
-        height: 100vh;
-        width: 177.78vh;
-        /* Поддержка 16:9 по вертикали */
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
     .progress-container {
-        height: 1vw;
+        height: 2px;
     }
-
-    .arrival-btn {
-        padding: 4vw 8vw;
-        font-size: 4.5vw;
-        bottom: 20%;
+    
+    .bottom-gradient {
+        height: 40%;
     }
-
-    .links-section {
-        padding: 15vw 5vw;
+    
+    .logo {
+        width: 25vw;
+        top: 2vw;
+        left: 2vw;
+    }
+    
+    .opening-title {
+        font-size: 5vw;
+        top: 55%;
+    }
+    
+    .info-line {
         flex-direction: column;
-        align-items: center;
-        gap: 4vw;
+        gap: 2vw;
+        bottom: 10%;
+        font-size: 3.5vw;
     }
-
-    .link {
-        padding: 4vw 8vw;
-        font-size: 4vw;
-        width: 90%;
-    }
-}
-
-/* ===== Дополнительные эффекты ===== */
-@media (min-width: 1200px) {
+    
     .arrival-btn {
-        font-size: 18px;
-        padding: 12px 25px;
-    }
-
-    .link {
-        font-size: 16px;
-        padding: 15px 30px;
+        padding: 2vw 6vw;
+        font-size: 3.5vw;
+        order: -1;
+        margin-bottom: 2vw;
     }
 }

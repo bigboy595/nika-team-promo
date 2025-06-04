@@ -59,8 +59,12 @@ video {
     left: 0;
     width: 100%;
     height: 30%;
-    background: linear-gradient(to top, rgba(40, 40, 40, 0.7), transparent);
+    background: linear-gradient(to top, rgba(126, 36, 36, 0.976), transparent);
     z-index: 2;
+}
+.phone a {
+    color: #ffffff;
+    text-decoration: none;
 }
 
 /* Логотип */
@@ -112,7 +116,7 @@ video {
 
 .arrival-btn {
     padding: 0.8vw 2.5vw;
-    background: white;
+    background: rgb(255, 255, 255);
     color: black;
     text-decoration: none;
     border-radius: 50px;
@@ -123,7 +127,7 @@ video {
 }
 
 .arrival-btn:hover {
-    background: #f0f0f0;
+    background: #ff0000;
     transform: scale(1.05);
 }
 

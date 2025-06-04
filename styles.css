@@ -130,11 +130,15 @@ video {
     background: #ff0000;
     transform: scale(1.05);
 }
+.opening-title {
+    font-size: 2vw;
+    top: -10vw;
+}
 
 /* Адаптация для мобилок */
 @media (max-width: 768px) {
     .progress-container {
-        height: 2px;
+        height: 2vw;
     }
     
     .bottom-gradient {
@@ -142,14 +146,14 @@ video {
     }
     
     .logo {
-        width: 25vw;
+        width: 40vw;
         top: 2vw;
         left: 2vw;
     }
     
     .opening-title {
         font-size: 5vw;
-        top: 55%;
+        top: -10vw;
     }
     
     .info-line {

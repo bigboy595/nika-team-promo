@@ -13,3 +13,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+// Прокрутка к нижней части видео-секции
+document.addEventListener('DOMContentLoaded', function() {
+    const videoSection = document.querySelector('.video-section');
+    setTimeout(() => {
+        videoSection.scrollIntoView({ 
+            block: 'end',
+            behavior: 'smooth'
+        });
+    }, 100);
+});
